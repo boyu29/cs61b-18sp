@@ -1,5 +1,4 @@
-/** Class that determines whether or not a year is a leap year.
- *  @author Boyu Chen
+ /**  @author Boyu Chen
  */
 public class LeapYear {
 
@@ -18,7 +17,6 @@ public class LeapYear {
             return false;
         }
     }
-
     /** Calls isLeapYear to print correct statement.
      *  @param  year to be analyzed
      */
