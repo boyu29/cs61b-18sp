@@ -17,8 +17,8 @@ public class ArrayDeque<T> {
         Array = (T[]) new Object[8];
         size = 0;
         usage = 0;
-        nextFirst = 4;
-        nextLast = 5;
+        nextFirst = 7;
+        nextLast = 0;
     }
 
     private int minusOne(int nextFirst){
@@ -158,7 +158,7 @@ public class ArrayDeque<T> {
 ////        TestAList.addLast(17);
 //
 //        TestAList.printArray();
-////        System.out.println(TestAList.get(0));
+//        System.out.println(TestAList.get(0));
 ////        System.out.println(TestAList.get(1));
 ////        System.out.println(TestAList.get(2));
 ////        System.out.println(TestAList.get(3));
