@@ -1,3 +1,11 @@
+/**  Project 1A: Circular Sentinel Linked List Deque.
+ *
+ *   ref = "https://sp18.datastructur.es/materials/proj/proj1a/proj1a"
+ *
+ *   @author: Boyu CHEN 05/04/2021
+ *
+ * */
+
 public class LinkedListDeque<T> {
     private class StuffNode{
         public T item;
