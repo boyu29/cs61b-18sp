@@ -1,3 +1,11 @@
+/**  Project 1A: Circular ArrayDeque.
+ *
+ *   ref = "https://sp18.datastructur.es/materials/proj/proj1a/proj1a"
+ *
+ *   @author: Boyu CHEN 05/04/2021
+ *
+ * */
+
 public class ArrayDeque<T> {
     private float usage;
     private int size;
@@ -9,7 +17,6 @@ public class ArrayDeque<T> {
         Array = (T[]) new Object[8];
         size = 0;
         usage = 0;
-
         nextFirst = 4;
         nextLast = 5;
     }
@@ -23,9 +30,10 @@ public class ArrayDeque<T> {
     }
 
     public void addFirst(T item){
+        resize();
         Array[nextFirst] = item;
         size++;
-        usage = (float) (size / Array.length);
+        usage = (float) size / (float) Array.length;
         nextFirst = minusOne(nextFirst);
     }
 
@@ -36,9 +44,10 @@ public class ArrayDeque<T> {
     }
 
     public void addLast(T item){
+        resize();
         Array[nextLast] = item;
         size++;
-        usage = (float) (size / Array.length);
+        usage = (float) size / (float) Array.length;
         nextLast = plusOne(nextLast);
     }
 
@@ -67,7 +76,8 @@ public class ArrayDeque<T> {
         T firstItem = Array[nextFirst];
         Array[nextFirst] = null;
         size--;
-        usage = (float) (size / Array.length);
+        usage = (float) size / (float) Array.length;
+        resize();
         return firstItem;
     }
 
@@ -76,7 +86,8 @@ public class ArrayDeque<T> {
         T lastItem = Array[nextLast];
         Array[nextLast] = null;
         size--;
-        usage = (float) (size / Array.length);
+        usage = (float) size / (float) Array.length;
+        resize();
         return lastItem;
     }
 
@@ -85,30 +96,111 @@ public class ArrayDeque<T> {
         return Array[plusOne(nextFirst+index)];
     }
 
+
+    private boolean checkUsage(){
+        return ( (usage < 0.25) && (Array.length >= 16) );
+    }
+
+    private void resize(){
+        /** Enlarge the Array when the AList is full. */
+        if(size == Array.length){
+            T[] copyArray = (T[]) new Object[size*2];
+            System.arraycopy(Array, 0, copyArray, 1, size);
+            nextFirst = 0;
+            nextLast = size+1;
+            Array = copyArray;
+        }
+        /** Shrink the Array when checkUsage is true. */
+        else if( checkUsage() ){
+            T[] copyArray = (T[]) new Object[Array.length/2];
+            if(nextLast > nextFirst){
+                System.arraycopy(Array, plusOne(nextFirst), copyArray, 1, nextLast-nextFirst+1);
+            }else{
+                System.arraycopy(Array, plusOne(nextFirst), copyArray, 1, Array.length-nextFirst-1);
+                System.arraycopy(Array, 0, copyArray, Array.length-nextFirst, nextLast);
+            }
+            nextFirst = 0;
+            nextLast = size+1;
+            Array = copyArray;
+        }
+    }
+
+    /** Test resizing method. */
+
+    public void printArray(){
+        for (T p : Array) {
+            System.out.print(p + " ");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         ArrayDeque<String> TestAList = new ArrayDeque<>();
+//        TestAList.addLast("aa");
+//        TestAList.addLast("bb");
+//        TestAList.addFirst("cc");
+//        TestAList.addLast("dd");
+//        TestAList.addLast("ee");
+//        TestAList.addFirst("ff");
+//
+//        System.out.println("--------------------");
+//
+//        TestAList.printDeque();
+//        System.out.println(TestAList.size());
+//        System.out.println(TestAList.get(6));
+//
+//        System.out.println("--------------------");
+//        System.out.println(TestAList.removeFirst());
+//        TestAList.printDeque();
+//        System.out.println(TestAList.size());
+//        System.out.println(TestAList.get(4));
+//
+//        System.out.println("--------------------");
+//        System.out.println(TestAList.removeLast());
+//        TestAList.printDeque();
+//        System.out.println(TestAList.size());
+
         TestAList.addLast("aa");
         TestAList.addLast("bb");
-        TestAList.addFirst("cc");
+        TestAList.addLast("cc");
         TestAList.addLast("dd");
         TestAList.addLast("ee");
-        TestAList.addFirst("ff");
+        TestAList.addLast("ff");
+        TestAList.addLast("gg");
+        TestAList.addLast("hh");
+        TestAList.addLast("ii");
+        TestAList.addLast("jj");
+        TestAList.addLast("kk");
+        TestAList.addLast("ll");
+        TestAList.addLast("mm");
+        TestAList.addLast("nn");
+        TestAList.addLast("oo");
+        TestAList.addLast("pp");
+        TestAList.addLast("qq");
+        TestAList.addFirst("rr");
+        TestAList.addFirst("ss");
 
-        System.out.println("--------------------");
+        TestAList.printArray();
 
-        TestAList.printDeque();
-        System.out.println(TestAList.size());
-        System.out.println(TestAList.get(6));
+        TestAList.removeFirst();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
+        TestAList.removeLast();
 
-        System.out.println("--------------------");
-        System.out.println(TestAList.removeFirst());
-        TestAList.printDeque();
-        System.out.println(TestAList.size());
-        System.out.println(TestAList.get(4));
-
-        System.out.println("--------------------");
-        System.out.println(TestAList.removeLast());
-        TestAList.printDeque();
-        System.out.println(TestAList.size());
+        TestAList.printArray();
     }
 }
