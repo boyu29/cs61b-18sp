@@ -17,8 +17,8 @@ public class ArrayDeque<T> {
         Array = (T[]) new Object[8];
         size = 0;
         usage = 0;
-        nextFirst = 7;
-        nextLast = 0;
+        nextFirst = 4;
+        nextLast = 5;
     }
 
     private int minusOne(int nextFirst){
