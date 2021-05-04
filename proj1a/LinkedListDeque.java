@@ -114,44 +114,44 @@ public class LinkedListDeque<T> {
         return getRecursiveHelper(index, CounterNode.next);
     }
 
-    public static void main(String[] args){
-        LinkedListDeque<String> Testlist = new LinkedListDeque<>();
-        Testlist.addFirst("1st");
-        Testlist.addLast("2nd");
-        Testlist.addLast("3rd");
-        Testlist.addFirst("addfirst");
-
-        System.out.println("The printDeque method expects '4 1 2 3'.");
-        System.out.print("And the method actually returns: ");
-        Testlist.printDeque();
-        System.out.println();
-
-        System.out.println("The 1st item of the list is: " + Testlist.get(0));
-        System.out.println("The 2nd item of the list is: " + Testlist.get(1));
-        System.out.println("The 3rd item of the list is: " + Testlist.get(2));
-        System.out.println("The 4th item of the list is: " + Testlist.get(3));
-
-        System.out.println("The 1st(recursive) item of the list is: " + Testlist.getRecursive(0));
-        System.out.println("The 2nd(recursive) item of the list is: " + Testlist.getRecursive(1));
-        System.out.println("The 3rd(recursive) item of the list is: " + Testlist.getRecursive(2));
-        System.out.println("The 4th(recursive) item of the list is: " + Testlist.getRecursive(3));
-
-        System.out.println(Testlist.getRecursive(-1));
-        System.out.println(Testlist.getRecursive(4));
-
-
-        System.out.println("The size of Testlist is: " + Testlist.size());
-
-        String RemovedFirstItem = Testlist.removeFirst();
-        System.out.print("Remove the first item '" + RemovedFirstItem + "' and we get: ");
-        Testlist.printDeque();
-        System.out.println();
-
-        String RemovedLastItem = Testlist.removeLast();
-        System.out.print("Remove the last item '" + RemovedLastItem + "' and we get: ");
-
-        Testlist.printDeque();
-    }
+//    public static void main(String[] args){
+//        LinkedListDeque<String> Testlist = new LinkedListDeque<>();
+//        Testlist.addFirst("1st");
+//        Testlist.addLast("2nd");
+//        Testlist.addLast("3rd");
+//        Testlist.addFirst("addfirst");
+//
+//        System.out.println("The printDeque method expects '4 1 2 3'.");
+//        System.out.print("And the method actually returns: ");
+//        Testlist.printDeque();
+//        System.out.println();
+//
+//        System.out.println("The 1st item of the list is: " + Testlist.get(0));
+//        System.out.println("The 2nd item of the list is: " + Testlist.get(1));
+//        System.out.println("The 3rd item of the list is: " + Testlist.get(2));
+//        System.out.println("The 4th item of the list is: " + Testlist.get(3));
+//
+//        System.out.println("The 1st(recursive) item of the list is: " + Testlist.getRecursive(0));
+//        System.out.println("The 2nd(recursive) item of the list is: " + Testlist.getRecursive(1));
+//        System.out.println("The 3rd(recursive) item of the list is: " + Testlist.getRecursive(2));
+//        System.out.println("The 4th(recursive) item of the list is: " + Testlist.getRecursive(3));
+//
+//        System.out.println(Testlist.getRecursive(-1));
+//        System.out.println(Testlist.getRecursive(4));
+//
+//
+//        System.out.println("The size of Testlist is: " + Testlist.size());
+//
+//        String RemovedFirstItem = Testlist.removeFirst();
+//        System.out.print("Remove the first item '" + RemovedFirstItem + "' and we get: ");
+//        Testlist.printDeque();
+//        System.out.println();
+//
+//        String RemovedLastItem = Testlist.removeLast();
+//        System.out.print("Remove the last item '" + RemovedLastItem + "' and we get: ");
+//
+//        Testlist.printDeque();
+//    }
 }
 
 

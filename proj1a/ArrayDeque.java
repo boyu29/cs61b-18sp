@@ -127,80 +127,80 @@ public class ArrayDeque<T> {
 
     /** Test resizing method. */
 
-    public void printArray(){
-        for (T p : Array) {
-            System.out.print(p + " ");
-        }
-        System.out.println();
-    }
+//    public void printArray(){
+//        for (T p : Array) {
+//            System.out.print(p + " ");
+//        }
+//        System.out.println();
+//    }
 
-    public static void main(String[] args) {
-        ArrayDeque<String> TestAList = new ArrayDeque<>();
+//    public static void main(String[] args) {
+//        ArrayDeque<String> TestAList = new ArrayDeque<>();
+////        TestAList.addLast("aa");
+////        TestAList.addLast("bb");
+////        TestAList.addFirst("cc");
+////        TestAList.addLast("dd");
+////        TestAList.addLast("ee");
+////        TestAList.addFirst("ff");
+////
+////        System.out.println("--------------------");
+////
+////        TestAList.printDeque();
+////        System.out.println(TestAList.size());
+////        System.out.println(TestAList.get(6));
+////
+////        System.out.println("--------------------");
+////        System.out.println(TestAList.removeFirst());
+////        TestAList.printDeque();
+////        System.out.println(TestAList.size());
+////        System.out.println(TestAList.get(4));
+////
+////        System.out.println("--------------------");
+////        System.out.println(TestAList.removeLast());
+////        TestAList.printDeque();
+////        System.out.println(TestAList.size());
+//
 //        TestAList.addLast("aa");
 //        TestAList.addLast("bb");
-//        TestAList.addFirst("cc");
+//        TestAList.addLast("cc");
 //        TestAList.addLast("dd");
 //        TestAList.addLast("ee");
-//        TestAList.addFirst("ff");
+//        TestAList.addLast("ff");
+//        TestAList.addLast("gg");
+//        TestAList.addLast("hh");
+//        TestAList.addLast("ii");
+//        TestAList.addLast("jj");
+//        TestAList.addLast("kk");
+//        TestAList.addLast("ll");
+//        TestAList.addLast("mm");
+//        TestAList.addLast("nn");
+//        TestAList.addLast("oo");
+//        TestAList.addLast("pp");
+//        TestAList.addLast("qq");
+//        TestAList.addFirst("rr");
+//        TestAList.addFirst("ss");
 //
-//        System.out.println("--------------------");
+//        TestAList.printArray();
 //
-//        TestAList.printDeque();
-//        System.out.println(TestAList.size());
-//        System.out.println(TestAList.get(6));
+//        TestAList.removeFirst();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
+//        TestAList.removeLast();
 //
-//        System.out.println("--------------------");
-//        System.out.println(TestAList.removeFirst());
-//        TestAList.printDeque();
-//        System.out.println(TestAList.size());
-//        System.out.println(TestAList.get(4));
-//
-//        System.out.println("--------------------");
-//        System.out.println(TestAList.removeLast());
-//        TestAList.printDeque();
-//        System.out.println(TestAList.size());
-
-        TestAList.addLast("aa");
-        TestAList.addLast("bb");
-        TestAList.addLast("cc");
-        TestAList.addLast("dd");
-        TestAList.addLast("ee");
-        TestAList.addLast("ff");
-        TestAList.addLast("gg");
-        TestAList.addLast("hh");
-        TestAList.addLast("ii");
-        TestAList.addLast("jj");
-        TestAList.addLast("kk");
-        TestAList.addLast("ll");
-        TestAList.addLast("mm");
-        TestAList.addLast("nn");
-        TestAList.addLast("oo");
-        TestAList.addLast("pp");
-        TestAList.addLast("qq");
-        TestAList.addFirst("rr");
-        TestAList.addFirst("ss");
-
-        TestAList.printArray();
-
-        TestAList.removeFirst();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-        TestAList.removeLast();
-
-        TestAList.printArray();
-    }
+//        TestAList.printArray();
+//    }
 }
