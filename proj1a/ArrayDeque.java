@@ -107,7 +107,10 @@ public class ArrayDeque<T> {
         /** Enlarge the Array when the AList is full. */
         if(size == Array.length){
             T[] copyArray = (T[]) new Object[size*2];
-            System.arraycopy(Array, 0, copyArray, 1, size);
+//            System.arraycopy(Array, 0, copyArray, 1, size);
+            System.arraycopy(Array, plusOne(nextFirst), copyArray, 1, Array.length-plusOne(nextFirst));
+            System.arraycopy(Array, 0, copyArray, Array.length - plusOne(nextFirst) + 1, nextLast);
+
             nextFirst = 0;
             nextLast = size+1;
             Array = copyArray;
@@ -129,49 +132,49 @@ public class ArrayDeque<T> {
 
     /** Test resizing method. */
 
-    public void printArray(){
-        for (T p : Array) {
-            System.out.print(p + " ");
-        }
-        System.out.println();
-    }
+//    public void printArray(){
+//        for (T p : Array) {
+//            System.out.print(p + " ");
+//        }
+//        System.out.println();
+//    }
 
-    public static void main(String[] args) {
-        ArrayDeque<Integer> TestAList = new ArrayDeque<>();
-        TestAList.addLast(0);
-        TestAList.addLast(1);
-        TestAList.addLast(2);
-        TestAList.addLast(3);
-        TestAList.addLast(4);
-        TestAList.addLast(5);
-        TestAList.addLast(6);
-        TestAList.addLast(7);
-        TestAList.addLast(8);
-        TestAList.addLast(9);
-//        TestAList.addLast(10);
-//        TestAList.addLast(11);
-//        TestAList.addLast(12);
-//        TestAList.addLast(13);
-//        TestAList.addLast(14);
-//        TestAList.addLast(15);
-//        TestAList.addLast(16);
-//        TestAList.addLast(17);
-
-        TestAList.printArray();
-        System.out.println(TestAList.get(0));
-//        System.out.println(TestAList.get(1));
-//        System.out.println(TestAList.get(2));
-//        System.out.println(TestAList.get(3));
-//        System.out.println(TestAList.get(4));
-//        System.out.println(TestAList.get(5));
-//        System.out.println(TestAList.get(6));
-//        System.out.println(TestAList.get(7));
-
-        int rm = TestAList.removeFirst();
-        System.out.println(rm);
-        TestAList.printArray();
-
-        TestAList.addFirst(rm);
-        TestAList.printArray();
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> TestAList = new ArrayDeque<>();
+//        TestAList.addLast(0);
+//        TestAList.addLast(1);
+//        TestAList.addLast(2);
+//        TestAList.addLast(3);
+//        TestAList.addLast(4);
+//        TestAList.addLast(5);
+//        TestAList.addLast(6);
+//        TestAList.addLast(7);
+//        TestAList.addLast(8);
+//        TestAList.addLast(9);
+////        TestAList.addLast(10);
+////        TestAList.addLast(11);
+////        TestAList.addLast(12);
+////        TestAList.addLast(13);
+////        TestAList.addLast(14);
+////        TestAList.addLast(15);
+////        TestAList.addLast(16);
+////        TestAList.addLast(17);
+//
+//        TestAList.printArray();
+//        System.out.println(TestAList.get(0));
+////        System.out.println(TestAList.get(1));
+////        System.out.println(TestAList.get(2));
+////        System.out.println(TestAList.get(3));
+////        System.out.println(TestAList.get(4));
+////        System.out.println(TestAList.get(5));
+////        System.out.println(TestAList.get(6));
+////        System.out.println(TestAList.get(7));
+//
+//        int rm = TestAList.removeFirst();
+//        System.out.println(rm);
+//        TestAList.printArray();
+//
+//        TestAList.addFirst(rm);
+//        TestAList.printArray();
+//    }
 }
