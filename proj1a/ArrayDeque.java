@@ -21,12 +21,12 @@ public class ArrayDeque<T> {
         nextLast = 5;
     }
 
-    private int minusOne(int nextFirst){
-        if(nextFirst != 0) nextFirst--;
+    private int minusOne(int index){
+        if(index != 0) index--;
         else{
-            nextFirst = Array.length-1;
+            index = Array.length-1;
         }
-        return nextFirst;
+        return index;
     }
 
     public void addFirst(T item){
@@ -37,10 +37,10 @@ public class ArrayDeque<T> {
         nextFirst = minusOne(nextFirst);
     }
 
-    private int plusOne(int nextLast){
-        if( nextLast != Array.length-1) nextLast++;
-        else nextLast = 0;
-        return nextLast;
+    private int plusOne(int index){
+        if( index != Array.length-1) index++;
+        else index = 0;
+        return index;
     }
 
     public void addLast(T item){
