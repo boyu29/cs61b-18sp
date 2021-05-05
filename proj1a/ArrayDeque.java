@@ -11,170 +11,181 @@ public class ArrayDeque<T> {
     private int size;
     private int nextFirst;
     private int nextLast;
-    private T[] Array;
+    private T[] arrayList;
 
-    public ArrayDeque(){
-        Array = (T[]) new Object[8];
+    public ArrayDeque() {
+        arrayList = (T[]) new Object[8];
         size = 0;
         usage = 0;
         nextFirst = 4;
         nextLast = 5;
     }
 
-    private int minusOne(int index){
-        if(index != 0) index--;
-        else{
-            index = Array.length-1;
+    private int minusOne(int index) {
+        if (index != 0) {
+            index--;
+        } else {
+            index = arrayList.length - 1;
         }
         return index;
     }
 
-    public void addFirst(T item){
+    public void addFirst(T item) {
         resize();
-        Array[nextFirst] = item;
+        arrayList[nextFirst] = item;
         size++;
-        usage = (float) size / (float) Array.length;
+        usage = (float) size / (float) arrayList.length;
         nextFirst = minusOne(nextFirst);
     }
 
-    private int plusOne(int index){
-        if( index != Array.length-1) index++;
-        else index = 0;
+    private int plusOne(int index) {
+        if (index != arrayList.length - 1) {
+            index++;
+        } else {
+            index = 0;
+        }
         return index;
     }
 
-    public void addLast(T item){
+    public void addLast(T item) {
         resize();
-        Array[nextLast] = item;
+        arrayList[nextLast] = item;
         size++;
-        usage = (float) size / (float) Array.length;
+        usage = (float) size / (float) arrayList.length;
         nextLast = plusOne(nextLast);
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return (size == 0);
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
-    public void printDeque(){
-        if( size == 0) System.out.println("Empty AList!");
-        else{
+    public void printDeque() {
+        if (size == 0) {
+            System.out.println("Empty AList!");
+        } else {
             int p = plusOne(nextFirst);
-            while(p != nextLast){
-                System.out.print(Array[p].toString() + ' ');
+            while (p != nextLast) {
+                System.out.print(arrayList[p].toString() + ' ');
                 p = plusOne(p);
             }
             System.out.println();
         }
     }
 
-    public T removeFirst(){
-        if(size == 0) return null;
-        T firstItem = Array[plusOne(nextFirst)];
-        Array[plusOne(nextFirst)] = null;
+    public T removeFirst() {
+        if (size == 0) {
+            return null;
+        }
+        T firstItem = arrayList[plusOne(nextFirst)];
+        arrayList[plusOne(nextFirst)] = null;
         nextFirst = plusOne(nextFirst);
         size--;
-        usage = (float) size / (float) Array.length;
+        usage = (float) size / (float) arrayList.length;
         resize();
         return firstItem;
     }
 
-    public T removeLast(){
-        if(size == 0) return null;
-        T lastItem = Array[minusOne(nextLast)];
-        Array[minusOne(nextLast)] = null;
+    public T removeLast() {
+        if (size == 0) {
+            return null;
+        }
+        T lastItem = arrayList[minusOne(nextLast)];
+        arrayList[minusOne(nextLast)] = null;
         nextLast = minusOne(nextLast);
         size--;
-        usage = (float) size / (float) Array.length;
+        usage = (float) size / (float) arrayList.length;
         resize();
         return lastItem;
     }
 
-    public T get(int index){
-        if(index >= size || index < 0) return null;
-        return Array[plusOne(nextFirst+index)% Array.length]; //use Array.length as modelo
+    public T get(int index) {
+        if (index >= size || index < 0) {
+            return null;
+        }
+        return arrayList[plusOne(nextFirst + index) % arrayList.length]; //use Array.length as modelo
     }
 
 
-    private boolean checkUsage(){
-        return ( (usage < 0.25) && (Array.length >= 16) );
+    private boolean checkUsage() {
+        return ((usage < 0.25) && (arrayList.length >= 16));
     }
 
-    private void resize(){
+    private void resize() {
         /** Enlarge the Array when the AList is full. */
-        if(size == Array.length){
-            T[] copyArray = (T[]) new Object[size*2];
+        if (size == arrayList.length) {
+            T[] copyArray = (T[]) new Object[size * 2];
 //            System.arraycopy(Array, 0, copyArray, 1, size);
-            System.arraycopy(Array, plusOne(nextFirst), copyArray, 1, Array.length-plusOne(nextFirst));
-            System.arraycopy(Array, 0, copyArray, Array.length - plusOne(nextFirst) + 1, nextLast);
+            System.arraycopy(arrayList, plusOne(nextFirst), copyArray, 1, arrayList.length - plusOne(nextFirst));
+            System.arraycopy(arrayList, 0, copyArray, arrayList.length - plusOne(nextFirst) + 1, nextLast);
 
             nextFirst = 0;
-            nextLast = size+1;
-            Array = copyArray;
+            nextLast = size + 1;
+            arrayList = copyArray;
         }
         /** Shrink the Array when checkUsage is true. */
-        else if( checkUsage() ){
-            T[] copyArray = (T[]) new Object[Array.length/2];
-            if(nextLast > nextFirst){
-                System.arraycopy(Array, plusOne(nextFirst), copyArray, 1, nextLast-nextFirst+1);
-            }else{
-                System.arraycopy(Array, plusOne(nextFirst), copyArray, 1, Array.length-nextFirst-1);
-                System.arraycopy(Array, 0, copyArray, Array.length-nextFirst, nextLast);
+        else if (checkUsage()) {
+            T[] copyArray = (T[]) new Object[arrayList.length / 2];
+            if (nextLast > nextFirst) {
+                System.arraycopy(arrayList, plusOne(nextFirst), copyArray, 1, nextLast - nextFirst + 1);
+            } else {
+                System.arraycopy(arrayList, plusOne(nextFirst), copyArray, 1, arrayList.length - nextFirst - 1);
+                System.arraycopy(arrayList, 0, copyArray, arrayList.length - nextFirst, nextLast);
             }
             nextFirst = 0;
-            nextLast = size+1;
-            Array = copyArray;
+            nextLast = size + 1;
+            arrayList = copyArray;
         }
     }
 
     /** Test resizing method. */
 
-//    public void printArray(){
-//        for (T p : Array) {
-//            System.out.print(p + " ");
-//        }
-//        System.out.println();
-//    }
+    public void printArray() {
+        for (T p : arrayList) {
+            System.out.print(p + " ");
+        }
+        System.out.println();
+    }
 
-//    public static void main(String[] args) {
-//        ArrayDeque<Integer> TestAList = new ArrayDeque<>();
-//        TestAList.addLast(0);
-//        TestAList.addLast(1);
-//        TestAList.addLast(2);
-//        TestAList.addLast(3);
-//        TestAList.addLast(4);
-//        TestAList.addLast(5);
-//        TestAList.addLast(6);
-//        TestAList.addLast(7);
-//        TestAList.addLast(8);
-//        TestAList.addLast(9);
-////        TestAList.addLast(10);
-////        TestAList.addLast(11);
-////        TestAList.addLast(12);
-////        TestAList.addLast(13);
-////        TestAList.addLast(14);
-////        TestAList.addLast(15);
-////        TestAList.addLast(16);
-////        TestAList.addLast(17);
-//
-//        TestAList.printArray();
-//        System.out.println(TestAList.get(0));
-////        System.out.println(TestAList.get(1));
-////        System.out.println(TestAList.get(2));
-////        System.out.println(TestAList.get(3));
-////        System.out.println(TestAList.get(4));
-////        System.out.println(TestAList.get(5));
-////        System.out.println(TestAList.get(6));
-////        System.out.println(TestAList.get(7));
-//
-//        int rm = TestAList.removeFirst();
-//        System.out.println(rm);
-//        TestAList.printArray();
-//
-//        TestAList.addFirst(rm);
-//        TestAList.printArray();
-//    }
+    public static void main(String[] args) {
+        ArrayDeque<Integer> testAList = new ArrayDeque<>();
+        testAList.addLast(0);
+        testAList.addLast(1);
+        testAList.addLast(2);
+        testAList.addLast(3);
+        testAList.addLast(4);
+        testAList.addLast(5);
+        testAList.addLast(6);
+        testAList.addLast(7);
+        testAList.addLast(8);
+        testAList.addLast(9);
+//        TestAList.addLast(10);
+//        TestAList.addLast(11);
+//        TestAList.addLast(12);
+//        TestAList.addLast(13);
+//        TestAList.addLast(14);
+//        TestAList.addLast(15);
+//        TestAList.addLast(16);
+//        TestAList.addLast(17);
+
+        testAList.printArray();
+        System.out.println(testAList.get(0));
+//        System.out.println(TestAList.get(1));
+//        System.out.println(TestAList.get(2));
+//        System.out.println(TestAList.get(3));
+//        System.out.println(TestAList.get(4));
+//        System.out.println(TestAList.get(5));
+//        System.out.println(TestAList.get(6));
+//        System.out.println(TestAList.get(7));
+
+        int rm = testAList.removeFirst();
+        System.out.println(rm);
+        testAList.printArray();
+
+        testAList.addFirst(rm);
+        testAList.printArray();
+    }
 }
