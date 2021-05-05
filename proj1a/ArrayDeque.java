@@ -73,9 +73,9 @@ public class ArrayDeque<T> {
 
     public T removeFirst(){
         if(size == 0) return null;
+        T firstItem = Array[plusOne(nextFirst)];
+        Array[plusOne(nextFirst)] = null;
         nextFirst = plusOne(nextFirst);
-        T firstItem = Array[nextFirst];
-        Array[nextFirst] = null;
         size--;
         usage = (float) size / (float) Array.length;
         resize();
@@ -84,9 +84,9 @@ public class ArrayDeque<T> {
 
     public T removeLast(){
         if(size == 0) return null;
+        T lastItem = Array[minusOne(nextLast)];
+        Array[minusOne(nextLast)] = null;
         nextLast = minusOne(nextLast);
-        T lastItem = Array[nextLast];
-        Array[nextLast] = null;
         size--;
         usage = (float) size / (float) Array.length;
         resize();
