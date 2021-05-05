@@ -143,49 +143,49 @@ public class ArrayDeque<T> {
 
     /** Test resizing method. */
 
-    public void printArray() {
-        for (T p : arrayList) {
-            System.out.print(p + " ");
-        }
-        System.out.println();
-    }
+//    public void printArray() {
+//        for (T p : arrayList) {
+//            System.out.print(p + " ");
+//        }
+//        System.out.println();
+//    }
 
-    public static void main(String[] args) {
-        ArrayDeque<Integer> testAList = new ArrayDeque<>();
-        testAList.addLast(0);
-        testAList.addLast(1);
-        testAList.addLast(2);
-        testAList.addLast(3);
-        testAList.addLast(4);
-        testAList.addLast(5);
-        testAList.addLast(6);
-        testAList.addLast(7);
-        testAList.addLast(8);
-        testAList.addLast(9);
-//        TestAList.addLast(10);
-//        TestAList.addLast(11);
-//        TestAList.addLast(12);
-//        TestAList.addLast(13);
-//        TestAList.addLast(14);
-//        TestAList.addLast(15);
-//        TestAList.addLast(16);
-//        TestAList.addLast(17);
-
-        testAList.printArray();
-        System.out.println(testAList.get(0));
-//        System.out.println(TestAList.get(1));
-//        System.out.println(TestAList.get(2));
-//        System.out.println(TestAList.get(3));
-//        System.out.println(TestAList.get(4));
-//        System.out.println(TestAList.get(5));
-//        System.out.println(TestAList.get(6));
-//        System.out.println(TestAList.get(7));
-
-        int rm = testAList.removeFirst();
-        System.out.println(rm);
-        testAList.printArray();
-
-        testAList.addFirst(rm);
-        testAList.printArray();
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> testAList = new ArrayDeque<>();
+//        testAList.addLast(0);
+//        testAList.addLast(1);
+//        testAList.addLast(2);
+//        testAList.addLast(3);
+//        testAList.addLast(4);
+//        testAList.addLast(5);
+//        testAList.addLast(6);
+//        testAList.addLast(7);
+//        testAList.addLast(8);
+//        testAList.addLast(9);
+////        TestAList.addLast(10);
+////        TestAList.addLast(11);
+////        TestAList.addLast(12);
+////        TestAList.addLast(13);
+////        TestAList.addLast(14);
+////        TestAList.addLast(15);
+////        TestAList.addLast(16);
+////        TestAList.addLast(17);
+//
+//        testAList.printArray();
+//        System.out.println(testAList.get(0));
+////        System.out.println(TestAList.get(1));
+////        System.out.println(TestAList.get(2));
+////        System.out.println(TestAList.get(3));
+////        System.out.println(TestAList.get(4));
+////        System.out.println(TestAList.get(5));
+////        System.out.println(TestAList.get(6));
+////        System.out.println(TestAList.get(7));
+//
+//        int rm = testAList.removeFirst();
+//        System.out.println(rm);
+//        testAList.printArray();
+//
+//        testAList.addFirst(rm);
+//        testAList.printArray();
+//    }
 }
