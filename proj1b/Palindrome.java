@@ -68,7 +68,7 @@ public class Palindrome {
             if (cc.equalChars(word.charAt(index), word.charAt(indexReversed))) {
                 return isPalindromeHelper(word, cc, index + 1);
             }
+            return false;
         }
-        return false;
     }
 }
