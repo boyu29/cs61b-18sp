@@ -14,25 +14,22 @@ public class TestPalindrome {
             actual += d.removeFirst();
         }
         assertEquals("persiflage", actual);
-    } //Uncomment this class once you've created your Palindrome class.
-
-//    @Test
-//    public void testWordToReversedDeque() {
-//        Deque d = palindrome.wordToReversedDeque("persiflage");
-//        String actual = "";
-//        for (int i = 0; i < "persiflage".length(); i++) {
-//            actual += d.removeLast();
-//        }
-//        assertEquals("persiflage", actual);
-//    }
+    }
 
     @Test
     public void testIsPalindrome() {
-        assertTrue(palindrome.isPalindrome("noon"));
-        assertTrue(palindrome.isPalindrome("Noon"));
-        assertTrue(palindrome.isPalindrome("A"));
+        int a = 'a';
+        int b = 'A';
+        System.out.println(a);
+        System.out.println(b);
+        assertTrue(palindrome.isPalindrome("c"));
         assertTrue(palindrome.isPalindrome(""));
+        assertTrue(palindrome.isPalindrome("cc"));
+        assertTrue(palindrome.isPalindrome("abba"));
+        assertTrue(palindrome.isPalindrome("abba"));
+        assertFalse(palindrome.isPalindrome("ab"));
         assertFalse(palindrome.isPalindrome("cat"));
+        assertFalse(palindrome.isPalindrome("aaaaacataaaaa"));
     }
 
     @Test
@@ -40,7 +37,6 @@ public class TestPalindrome {
         CharacterComparator cc = new OffByOne();
         assertTrue(palindrome.isPalindrome("flake", cc));
         assertTrue(palindrome.isPalindrome("abcb", cc));
-        assertFalse(palindrome.isPalindrome("cat",cc));
-        assertFalse(palindrome.isPalindrome("noon",cc));
+        assertFalse(palindrome.isPalindrome("abba", cc));
     }
 }

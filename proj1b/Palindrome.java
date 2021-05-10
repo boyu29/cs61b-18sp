@@ -39,7 +39,7 @@ public class Palindrome {
 
     /** Uses recursion. */
     public boolean isPalindrome(String word) {
-        word = word.toLowerCase();
+//        word = word.toLowerCase();
         return isPalindromeHelper(word, 0);
     }
 
@@ -56,7 +56,7 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word, CharacterComparator cc) {
-        word = word.toLowerCase();
+//        word = word.toLowerCase();
         return isPalindromeHelper(word, cc, 0);
     }
 
