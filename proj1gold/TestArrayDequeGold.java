@@ -27,14 +27,14 @@ public class TestArrayDequeGold {
                 if (!stuDeque.isEmpty() && !expDeque.isEmpty()) {
                     Integer stuRmFirst = stuDeque.removeFirst();
                     Integer expRmFirst = expDeque.removeFirst();
-                    failureExpresssion = failureExpresssion + "removeFirst()";
+                    failureExpresssion = failureExpresssion + "removeFirst()\n";
                     assertEquals(failureExpresssion, expRmFirst, stuRmFirst);
                 }
             } else {
                 if (!stuDeque.isEmpty() && !expDeque.isEmpty()) {
                     Integer stuRmLast = stuDeque.removeLast();
                     Integer expRmLast = expDeque.removeLast();
-                    failureExpresssion = failureExpresssion + "removeLast()";
+                    failureExpresssion = failureExpresssion + "removeLast()\n";
                     assertEquals(failureExpresssion, expRmLast, stuRmLast);
                 }
             }
